@@ -5,7 +5,7 @@ import numpy as np
 
 maximumJobs = 8
 
-command = ['python','./pusedorun.py']
+command = ['python','./pseudorun.py']
 
 settings = [['-no',str(i)] for i in range(8)]
 
