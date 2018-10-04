@@ -1,10 +1,10 @@
-from multiprocessing import Pool,Queue,Process
+from multiprocessing import Pool,Queue,Process,SimpleQueue
 import sys
 import subprocess
 import setting
 import numpy
 
-qRev = Queue()
+qRev = SimpleQueue()
 
 def worker(settings):
     while not setting.q.empty():
@@ -13,7 +13,7 @@ def worker(settings):
         command += settings
         print("working on:",command)
         output = subprocess.check_output(command)
-        save = setting.process(output)
+        save = setting.process(output.decode('utf-8').split('\n'))
         qRev.put([command,save])
         setting.after()
         print("work finish:",command)

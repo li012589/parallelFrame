@@ -1,5 +1,6 @@
 import argparse
 import time
+import random
 
 parser = argparse.ArgumentParser(description='')
 group = parser.add_argument_group('')
@@ -11,6 +12,6 @@ args = parser.parse_args()
 
 
 for i in range(args.epochs):
-    time.sleep(0.3)
+    time.sleep(0.3+random.randint(0,10)/10)
     print("at epoch:",i,"T:",args.T,"no",args.no)
 

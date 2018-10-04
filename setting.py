@@ -15,10 +15,12 @@ if settings != []:
 parameters = {"-T":[str(i/10) for i in range(10,21)]}
 
 q = Queue()
+commands = []
 
 for name,content in parameters.items():
     for i in content:
         q.put(command+[name]+[i])
+        commands.append(command+[name]+[i])
 
 
 def before():
@@ -31,7 +33,6 @@ def after():
 
 def process(result):
     nums = []
-    res = result.decode('utf-8').split('\n')
-    for i in res[:-1]:
+    for i in result[-10:-1]:
         nums.append([float(s) for s in re.findall(r'-?\d+\.?\d*',i)])
     return np.array(nums)
