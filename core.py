@@ -18,6 +18,7 @@ def worker(settings):
         setting.after()
         print("work finish:",command)
         sys.stdout.flush()
+    return 0
 
 processes = []
 for i in range(setting.maximumJobs):
@@ -25,9 +26,10 @@ for i in range(setting.maximumJobs):
     p.start()
     processes.append(p)
 
+for p in processes:
+    p.join()
+
 print("run all finish")
 while not qRev.empty():
     print(qRev.get())
 
-for p in processes:
-    p.join()
