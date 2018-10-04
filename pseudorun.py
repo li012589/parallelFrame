@@ -11,5 +11,6 @@ args = parser.parse_args()
 
 
 for i in range(args.epochs):
-    time.sleep(1)
+    time.sleep(0.3)
     print("at epoch:",i,"T:",args.T,"no",args.no)
+
