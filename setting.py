@@ -6,7 +6,7 @@ maximumJobs = 8
 
 command = ['python','./pseudorun.py']
 
-settings = [['-no',str(i)] for i in range(8)]
+settings = [['-cuda',str(i)] for i in range(8)]
 
 parameters = {"-T":[str(i/10) for i in range(10,21)]}
 
