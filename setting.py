@@ -24,5 +24,8 @@ def process(result):
         nums.append([float(s) for s in re.findall(r'-?\d+\.?\d*',i)])
     return np.array(nums)
 
+def finish(result):
+    print(result)
+
 if settings != []:
     assert len(settings) == maximumJobs

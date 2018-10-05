@@ -48,6 +48,9 @@ for p in processes:
     p.join()
 
 print("[Core] Workers all finished")
+RES = {}
 while not qRev.empty():
-    print(qRev.get())
+    res = qRev.get()
+    RES[res[0]] = res[1]
+setting.finish(RES)
 
