@@ -37,6 +37,7 @@ def worker(settings):
         sys.stdout.flush()
     return 0
 
+print("[Core] Job pool size:",len(commands))
 processes = []
 for i in range(setting.maximumJobs):
     print("[Core] Initing work",str(i),"with setting:",''.join(i+' ' for i in setting.settings[i]))
