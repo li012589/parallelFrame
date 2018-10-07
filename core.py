@@ -8,6 +8,7 @@ import copy
 q = Queue()
 
 commands=[]
+labelStart = len(setting.command)
 for name,content in setting.parameters.items():
     if len(commands) == 0:
         commands = [setting.command+[name]+[i] for i in content]
@@ -26,12 +27,12 @@ qRev = SimpleQueue()
 def worker(settings):
     while not q.empty():
         setting.before()
-        command = q.get()
-        command += settings
+        label = q.get()
+        command = label + settings
         print("[Core] Working on:",''.join(i+' ' for i in command))
         output = subprocess.check_output(command)
         save = setting.process(output.decode('utf-8').split('\n'))
-        qRev.put([''.join(i+' ' for i in command),save])
+        qRev.put([''.join(i+' ' for i in label[labelStart:]),save])
         setting.after()
         print("[Core] Work finish:",''.join(i+' ' for i in command))
         sys.stdout.flush()
