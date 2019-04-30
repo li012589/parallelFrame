@@ -1,0 +1,4 @@
+# init DataCore
+
+whpath = "./warehouse"
+datagroup = ["networks","data","configs"]
