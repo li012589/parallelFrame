@@ -1,4 +1,4 @@
-## DataCore
+# parallelFrame
 
 A parameter-scan and data-manage framework tool using python, applicable to any program passing parameters via bash.
 
@@ -21,5 +21,5 @@ All settings at `setting.py` , which can be divided into two parts:
 
 1. **before**: the function to run before running command. e.g. to more load file to same location to short command.
 2. **process**: the function to process data collected from running command. e.g. grep all numbers and return back.
-3. **after**: the function to run after running command. e.g. to more save file to specified locations.
+3. **after**: the function to run after running command. e.g. to move save file to specified locations.
 4. **finish**: the function to run at the end of all commands, and have a input of all collected data.
